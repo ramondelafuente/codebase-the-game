@@ -11,7 +11,6 @@ class FeatureSpec extends ObjectBehavior
         $this->beConstructedThrough('write');
 
         $this->shouldHaveType(Feature::class);
-        $this->codeCoverage()->shouldReturn(0);
-        $this->bugCount()->shouldReturn(0);
+        $this->coverage()->shouldReturn(0);
     }
 }

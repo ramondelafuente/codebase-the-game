@@ -8,27 +8,22 @@ final class Feature
     /**
      * @var int
      */
-    private $codeCoverage;
+    private $coverage;
 
     private function __construct()
     {
     }
 
-    public static function write(int $codeCoverage = 0): self
+    public static function write(int $coverage = 0): self
     {
         $feature = new Feature();
-        $feature->codeCoverage = $codeCoverage;
+        $feature->coverage = $coverage;
 
         return $feature;
     }
 
-    public function bugCount(): int
+    public function coverage(): int
     {
-        return 0;
-    }
-
-    public function codeCoverage(): int
-    {
-        return $this->codeCoverage;
+        return $this->coverage;
     }
 }
