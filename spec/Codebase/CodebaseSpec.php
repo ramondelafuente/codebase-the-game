@@ -12,6 +12,7 @@ class CodebaseSpec extends ObjectBehavior
 
         $this->shouldHaveType(Codebase::class);
         $this->features()->shouldReturn([]);
+        $this->bugCount()->shouldReturn(0);
     }
 
     function it_adds_a_feature()

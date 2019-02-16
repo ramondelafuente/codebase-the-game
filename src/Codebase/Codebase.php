@@ -10,6 +10,11 @@ final class Codebase
      */
     private $features;
 
+    /**
+     * @var int
+     */
+    private $bugCount;
+
     public static function initialize(): self
     {
         return new self();
@@ -18,6 +23,7 @@ final class Codebase
     private function __construct()
     {
         $this->features = [];
+        $this->bugCount = 0;
     }
 
     /**
@@ -31,5 +37,10 @@ final class Codebase
     public function addFeature(Feature $feature): void
     {
         $this->features[] = $feature;
+    }
+
+    public function bugCount(): int
+    {
+        return $this->bugCount;
     }
 }
