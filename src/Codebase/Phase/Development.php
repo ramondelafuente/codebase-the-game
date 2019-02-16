@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Codebase\Phase;
 
+use Codebase\Codebase;
+
 final class Development
 {
     /**
@@ -15,17 +17,23 @@ final class Development
      */
     private $bugsToSolve;
 
+    /**
+     * @var Codebase
+     */
+    private $codebase;
+
     private function __construct()
     {
     }
 
-    public static function start(int $availableTime, int $bugsToSolve): self
+    public static function start(Codebase $codebase, int $availableTime, int $bugsToSolve): self
     {
-        $instance = new Development();
-        $instance->availableTime = $availableTime;
-        $instance->bugsToSolve = $bugsToSolve;
+        $development = new Development();
+        $development->codebase = $codebase;
+        $development->availableTime = $availableTime;
+        $development->bugsToSolve = $bugsToSolve;
 
-        return $instance;
+        return $development;
     }
 
     public function availableTime(): int
