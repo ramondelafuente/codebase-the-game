@@ -19,7 +19,7 @@ final class Lifecycle
     {
     }
 
-    public static function initialize()
+    public static function initialize(): self
     {
         $lifecycle = new Lifecycle();
         $lifecycle->codebase = Codebase::initialize();
@@ -36,5 +36,10 @@ final class Lifecycle
     public function iterations(): array
     {
         return $this->iterations;
+    }
+
+    public function addIteration(Iteration $iteration): void
+    {
+        $this->iterations[] = $iteration;
     }
 }
