@@ -6,7 +6,7 @@ namespace Codebase;
 final class Codebase
 {
     /**
-     * @var array
+     * @var Feature[]
      */
     private $features;
 
@@ -20,6 +20,9 @@ final class Codebase
         $this->features = [];
     }
 
+    /**
+     * @return Feature[]
+     */
     public function features(): array
     {
         return $this->features;
