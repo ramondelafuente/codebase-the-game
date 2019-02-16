@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Codebase;
 
+use Codebase\BugCalculator\OneBugInEveryFeature;
 use Codebase\Phase\Development;
 use Codebase\Phase\Production;
 
@@ -62,7 +63,7 @@ final class Team
                 $bugsToSolve,
                 0
             ),
-            Production::plan()
+            Production::plan(new OneBugInEveryFeature())
         );
 
         $iteration->run($this->codebase);

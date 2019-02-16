@@ -2,11 +2,9 @@
 
 namespace Codebase\BugCalculator;
 
-use Codebase\BugCalculator\OneBugInEveryFeature;
 use Codebase\Code;
 use Codebase\Feature;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class OneBugInEveryFeatureSpec extends ObjectBehavior
 {
