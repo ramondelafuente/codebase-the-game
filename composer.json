@@ -1,0 +1,16 @@
+{
+    "require-dev": {
+        "phpspec/phpspec": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codebase\\": "src/Codebase"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codebase\\": "spec/Codebase"
+        }
+    }
+
+}
