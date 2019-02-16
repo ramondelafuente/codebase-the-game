@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Codebase;
 
+use Webmozart\Assert\Assert;
+
 final class Feature
 {
     /**
@@ -16,6 +18,9 @@ final class Feature
 
     public static function write(int $coverage = 0): self
     {
+        Assert::greaterThanEq($coverage, 0, 'Coverage should be 0% or higher');
+        Assert::lessThanEq($coverage, 100, 'Coverage should be 100% or lower');
+
         $feature = new Feature();
         $feature->coverage = $coverage;
 
