@@ -18,15 +18,21 @@ final class Development implements Phase
      */
     private $bugsToSolve;
 
+    /**
+     * @var int
+     */
+    private $coverageToIncrease;
+
     private function __construct()
     {
     }
 
-    public static function plan(int $availableTime, int $bugsToSolve): self
+    public static function plan(int $availableTime, int $bugsToSolve, int $coverageToIncrease): self
     {
         $development = new Development();
         $development->availableTime = $availableTime;
         $development->bugsToSolve = $bugsToSolve;
+        $development->coverageToIncrease = $coverageToIncrease;
 
         return $development;
     }
@@ -39,6 +45,11 @@ final class Development implements Phase
     public function bugsToSolve(): int
     {
         return $this->bugsToSolve;
+    }
+
+    public function coverageToIncrease(): int
+    {
+        return $this->coverageToIncrease;
     }
 
     public function run(Codebase $codebase): Codebase
