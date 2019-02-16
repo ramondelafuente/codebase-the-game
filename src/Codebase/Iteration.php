@@ -15,7 +15,7 @@ final class Iteration
      */
     private $productionPhase;
 
-    public static function initialize(Phase $developmentPhase, Phase $productionPhase): self
+    public static function prepare(Phase $developmentPhase, Phase $productionPhase): self
     {
         $iteration = new Iteration();
         $iteration->developmentPhase = $developmentPhase;
@@ -26,5 +26,11 @@ final class Iteration
 
     private function __construct()
     {
+    }
+
+    public function run(Code $codebase): void
+    {
+        $this->developmentPhase->run($codebase);
+        $this->productionPhase->run($codebase);
     }
 }

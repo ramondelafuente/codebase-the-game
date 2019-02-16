@@ -15,4 +15,6 @@ of having bugs reported during `Production`. It comes at a cost of `Time` per `F
 
 An `Iteration` consists of one `Development` and one `Production` phase.
 
-A `LifeCycle` is the entire history of a codebase, it consists of a list of `Iterations`, and the codebase after each iteration.
+A `Lifecycle` is the entire history of a codebase, it consists of a list of `Iterations`, and the codebase after each iteration.
+
+A `Team` works on a single `Codebase` during the `Lifecycle` of that codebase, planning the `Iterations` as they go.
