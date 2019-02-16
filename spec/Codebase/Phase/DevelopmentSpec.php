@@ -1,8 +1,7 @@
 <?php
 
-namespace spec\Codebase\Phase;
+namespace Codebase\Phase;
 
-use Codebase\Phase\Development;
 use PhpSpec\ObjectBehavior;
 
 class DevelopmentSpec extends ObjectBehavior

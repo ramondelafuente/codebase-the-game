@@ -1,8 +1,7 @@
 <?php
 
-namespace spec\Codebase;
+namespace Codebase;
 
-use Codebase\Codebase;
 use PhpSpec\ObjectBehavior;
 
 class CodebaseSpec extends ObjectBehavior

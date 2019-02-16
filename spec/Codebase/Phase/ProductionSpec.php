@@ -1,10 +1,8 @@
 <?php
 
-namespace spec\Codebase\Phase;
+namespace Codebase\Phase;
 
-use Codebase\Phase\Production;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ProductionSpec extends ObjectBehavior
 {

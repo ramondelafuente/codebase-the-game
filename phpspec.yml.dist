@@ -1,0 +1,10 @@
+suites:
+    codebase_suite:
+        namespace: Codebase
+        spec_prefix: ~
+        src_path: src
+        spec_path: spec
+
+formatter.name: dot
+
+extensions:
