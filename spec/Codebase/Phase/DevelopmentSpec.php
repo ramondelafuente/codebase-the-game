@@ -25,6 +25,6 @@ class DevelopmentSpec extends ObjectBehavior
         $this->beConstructedThrough('plan', [10, 1, 0]);
 
         $codebase->solveBugs(1)->shouldBeCalled();
-        $this->run($codebase);
+        $this->run($codebase)->shouldReturnAnInstanceOf(Code::class);
     }
 }

@@ -25,6 +25,6 @@ final class Production implements Phase
         // 1. for each feature, determine if there is a bug found
         // 2. update the codebase
 
-        // return the codebase
+        return $codebase;
     }
 }
