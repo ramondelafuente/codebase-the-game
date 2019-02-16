@@ -31,4 +31,12 @@ final class Feature
     {
         return $this->coverage;
     }
+
+    public function increaseCoverage(int $percentageIncrease): void
+    {
+        Assert::greaterThanEq($percentageIncrease, 0, 'Coverage increase should be 0% or higher');
+        Assert::lessThanEq($this->coverage + $percentageIncrease, 100, 'Total coverage can not become higher than 100%');
+
+        $this->coverage += $percentageIncrease;
+    }
 }
