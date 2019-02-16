@@ -18,19 +18,13 @@ final class Development implements Phase
      */
     private $bugsToSolve;
 
-    /**
-     * @var Codebase
-     */
-    private $codebase;
-
     private function __construct()
     {
     }
 
-    public static function plan(Codebase $codebase, int $availableTime, int $bugsToSolve): self
+    public static function plan(int $availableTime, int $bugsToSolve): self
     {
         $development = new Development();
-        $development->codebase = $codebase;
         $development->availableTime = $availableTime;
         $development->bugsToSolve = $bugsToSolve;
 
