@@ -17,13 +17,13 @@ final class Codebase
 
     public static function initialize(): self
     {
-        return new self();
+        return new self([], 0);
     }
 
-    private function __construct()
+    private function __construct(array $features, int $bugCount)
     {
-        $this->features = [];
-        $this->bugCount = 0;
+        $this->features = $features;
+        $this->bugCount = $bugCount;
     }
 
     /**
