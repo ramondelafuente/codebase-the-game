@@ -20,6 +20,9 @@ class ProductionSpec extends ObjectBehavior
     {
         $this->beConstructedThrough('plan');
 
+        $codebase->features()->willReturn(['Feature1', 'Feature2']);
+        $codebase->findBugs(2)->shouldBeCalled();
+
         $this->run($codebase);
         $this->run($codebase)->shouldReturnAnInstanceOf(Code::class);
     }

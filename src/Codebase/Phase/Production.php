@@ -21,9 +21,7 @@ final class Production implements Phase
 
     public function run(Code $codebase): Code
     {
-        // TODO
-        // 1. for each feature, determine if there is a bug found
-        // 2. update the codebase
+        $codebase->findBugs(count($codebase->features()));
 
         return $codebase;
     }
