@@ -4,5 +4,5 @@ namespace Codebase;
 
 interface Phase
 {
-    public function run(Codebase $codebase): Codebase;
+    public function run(Code $codebase): Code;
 }

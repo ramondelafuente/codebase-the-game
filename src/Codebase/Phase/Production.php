@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Codebase\Phase;
 
-use Codebase\Codebase;
+use Codebase\Code;
 use Codebase\Phase;
 
 final class Production implements Phase
@@ -19,7 +19,7 @@ final class Production implements Phase
         return $production;
     }
 
-    public function run(Codebase $codebase): Codebase
+    public function run(Code $codebase): Code
     {
         // TODO
         // 1. for each feature, determine if there is a bug found

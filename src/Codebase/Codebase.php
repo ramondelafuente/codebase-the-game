@@ -5,7 +5,7 @@ namespace Codebase;
 
 use Webmozart\Assert\Assert;
 
-final class Codebase
+final class Codebase implements Code
 {
     /**
      * @var Feature[]

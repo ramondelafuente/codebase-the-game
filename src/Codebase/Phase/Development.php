@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Codebase\Phase;
 
-use Codebase\Codebase;
+use Codebase\Code;
 use Codebase\Phase;
 
 final class Development implements Phase
@@ -52,7 +52,7 @@ final class Development implements Phase
         return $this->coverageToIncrease;
     }
 
-    public function run(Codebase $codebase): Codebase
+    public function run(Code $codebase): Code
     {
         // TODO
         // 1. solve the requested number of bugs (or run out of time)
@@ -60,5 +60,6 @@ final class Development implements Phase
         // 3. work on new features for the remaining time
         //
         // return the codebase
+        return $codebase;
     }
 }
