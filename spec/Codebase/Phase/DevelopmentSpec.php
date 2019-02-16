@@ -3,6 +3,7 @@
 namespace Codebase\Phase;
 
 use Codebase\Code;
+use Codebase\Feature;
 use Codebase\Phase;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
