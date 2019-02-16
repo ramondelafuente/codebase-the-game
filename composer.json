@@ -1,18 +1,20 @@
 {
-    "require-dev": {
-        "phpspec/phpspec": "^5.1"
+    "require": {
+        "webmozart/assert": "^1.4",
+        "symfony/console": "^4.2"
     },
     "autoload": {
         "psr-4": {
-            "Codebase\\": "src/Codebase"
+            "Codebase\\": "src/Codebase",
+            "Application\\": "src/Application"
         }
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^5.1"
     },
     "autoload-dev": {
         "psr-4": {
             "Codebase\\": "spec/Codebase"
         }
-    },
-    "require": {
-        "webmozart/assert": "^1.4"
     }
 }
