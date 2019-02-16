@@ -13,5 +13,11 @@ class TeamSpec extends ObjectBehavior
         $this->shouldHaveType(Team::class);
         $this->codebase()->shouldReturnAnInstanceOf(Code::class);
         $this->lifecycle()->shouldReturnAnInstanceOf(Lifecycle::class);
+        $this->inspectCodebase()->shouldReturn(
+            [
+                'features' => 0,
+                'bugs' => 0
+            ]
+        );
     }
 }

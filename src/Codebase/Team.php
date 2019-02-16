@@ -33,6 +33,14 @@ final class Team
         return $this->codebase;
     }
 
+    public function inspectCodebase(): array
+    {
+        return [
+            'features' => count($this->codebase->features()),
+            'bugs' => $this->codebase->bugCount()
+        ];
+    }
+
     public function lifecycle(): Lifecycle
     {
         return $this->lifecycle;
