@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Codebase\Phase;
 
 use Codebase\Code;
+use Codebase\Feature;
 use Codebase\Phase;
 
 final class Development implements Phase
@@ -54,15 +55,22 @@ final class Development implements Phase
 
     public function run(Code $codebase): Code
     {
-        // TODO keep track of available time
         // 1. solve the requested number of bugs (or run out of time)
         $codebase->solveBugs($this->bugsToSolve);
+        $this->availableTime -= $this->bugsToSolve;
 
         // TODO
         // 2. increase the code coverage (or run out of time)
+
         // 3. work on new features for the remaining time
-        //
-        // return the codebase
+        $numberOfFeatures = floor($this->availableTime / 10);
+
+        while ($numberOfFeatures > 0) {
+            $codebase->addFeature(Feature::write(0));
+
+            $numberOfFeatures--;
+        }
+
         return $codebase;
     }
 }

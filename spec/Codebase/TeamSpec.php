@@ -2,7 +2,6 @@
 
 namespace Codebase;
 
-use PhpSpec\Exception\Example\SkippingException;
 use PhpSpec\ObjectBehavior;
 
 class TeamSpec extends ObjectBehavior
@@ -22,20 +21,13 @@ class TeamSpec extends ObjectBehavior
         );
     }
 
-    /**
-     * @throws SkippingException
-     */
     function it_plans_an_iteration()
     {
         $this->beConstructedThrough('form');
 
-        throw new SkippingException(
-            'Fix this test after development phases starts adding features'
-        );
-
         $this->planIteration(0);
         $this->codebase()->features()->shouldNotBeEmpty();
-
+        $this->lifecycle()->iterations()->shouldNotBeEmpty();
     }
 
     public function getMatchers(): array

@@ -5,6 +5,7 @@ namespace Codebase\Phase;
 use Codebase\Code;
 use Codebase\Phase;
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 
 class DevelopmentSpec extends ObjectBehavior
 {
@@ -22,9 +23,10 @@ class DevelopmentSpec extends ObjectBehavior
 
     function it_runs(Code $codebase)
     {
-        $this->beConstructedThrough('plan', [10, 1, 0]);
+        $this->beConstructedThrough('plan', [11, 1, 0]);
 
         $codebase->solveBugs(1)->shouldBeCalled();
+        $codebase->addFeature(Argument::type(Feature::class))->shouldBeCalled();
         $this->run($codebase)->shouldReturnAnInstanceOf(Code::class);
     }
 }
