@@ -25,8 +25,12 @@ final class Production implements Phase
         return $production;
     }
 
-    public function run(): Codebase
+    public function run(Codebase $codebase): Codebase
     {
-        // TODO: Implement run() method.
+        // TODO
+        // 1. for each feature, determine if there is a bug found
+        // 2. update the codebase
+
+        // return the codebase
     }
 }

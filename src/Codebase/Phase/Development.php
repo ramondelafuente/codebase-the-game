@@ -47,8 +47,13 @@ final class Development implements Phase
         return $this->bugsToSolve;
     }
 
-    public function run(): Codebase
+    public function run(Codebase $codebase): Codebase
     {
-        // TODO: Implement run() method.
+        // TODO
+        // 1. solve the requested number of bugs (or run out of time)
+        // 2. increase the code coverage (or run out of time)
+        // 3. work on new features for the remaining time
+        //
+        // return the codebase
     }
 }
