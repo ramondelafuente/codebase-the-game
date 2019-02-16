@@ -8,19 +8,13 @@ use Codebase\Phase;
 
 final class Production implements Phase
 {
-    /**
-     * @var Codebase
-     */
-    private $codebase;
-
     private function __construct()
     {
     }
 
-    public static function plan(Codebase $codebase): self
+    public static function plan(): self
     {
         $production = new Production();
-        $production->codebase  = $codebase;
 
         return $production;
     }
