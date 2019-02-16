@@ -23,7 +23,7 @@ final class Team
     {
         $team = new Team();
         $team->codebase = Codebase::initialize();
-        $team->lifecycle = Lifecycle::initialize();
+        $team->lifecycle = Lifecycle::begin($team->codebase);
 
         return $team;
     }

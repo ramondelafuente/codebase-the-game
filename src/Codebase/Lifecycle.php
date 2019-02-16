@@ -19,10 +19,10 @@ final class Lifecycle
     {
     }
 
-    public static function initialize(): self
+    public static function begin(Code $codebase): self
     {
         $lifecycle = new Lifecycle();
-        $lifecycle->codebase = Codebase::initialize();
+        $lifecycle->codebase = $codebase;
         $lifecycle->iterations = [];
 
         return $lifecycle;
