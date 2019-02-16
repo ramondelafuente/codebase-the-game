@@ -24,4 +24,13 @@ class CodebaseSpec extends ObjectBehavior
         $this->addFeature($feature);
         $this->features()->shouldReturn([$feature]);
     }
+
+    function it_increases_the_bugcount()
+    {
+        $this->beConstructedThrough('initialize');
+
+        $this->findBugs(3);
+        $this->bugCount()->shouldReturn(3);
+    }
+
 }

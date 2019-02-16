@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Codebase;
 
+use Webmozart\Assert\Assert;
+
 final class Codebase
 {
     /**
@@ -42,5 +44,12 @@ final class Codebase
     public function bugCount(): int
     {
         return $this->bugCount;
+    }
+
+    public function findBugs(int $numberOfBugs): void
+    {
+        Assert::greaterThanEq($numberOfBugs, 0, 'The number of bugs found should be 0 or more');
+
+        $this->bugCount += $numberOfBugs;
     }
 }
