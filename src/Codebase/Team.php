@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace Codebase;
 
+use Codebase\Phase\Development;
+use Codebase\Phase\Production;
+
 final class Team
 {
     /**
@@ -14,6 +17,11 @@ final class Team
      * @var Lifecycle
      */
     private $lifecycle;
+
+    /**
+     * @var int
+     */
+    private $timeBudget = 100;
 
     private function __construct()
     {
@@ -33,6 +41,11 @@ final class Team
         return $this->codebase;
     }
 
+    public function lifecycle(): Lifecycle
+    {
+        return $this->lifecycle;
+    }
+
     public function inspectCodebase(): array
     {
         return [
@@ -41,8 +54,18 @@ final class Team
         ];
     }
 
-    public function lifecycle(): Lifecycle
+    public function planIteration(int $bugsToSolve): void
     {
-        return $this->lifecycle;
+        $iteration = Iteration::prepare(
+            Development::plan(
+                $this->timeBudget-$this->codebase->bugCount(),
+                $bugsToSolve,
+                0
+            ),
+            Production::plan()
+        );
+
+        $iteration->run($this->codebase);
+        $this->lifecycle->addIteration($iteration);
     }
 }
