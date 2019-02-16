@@ -54,8 +54,11 @@ final class Development implements Phase
 
     public function run(Code $codebase): Code
     {
-        // TODO
+        // TODO keep track of available time
         // 1. solve the requested number of bugs (or run out of time)
+        $codebase->solveBugs($this->bugsToSolve);
+
+        // TODO
         // 2. increase the code coverage (or run out of time)
         // 3. work on new features for the remaining time
         //
