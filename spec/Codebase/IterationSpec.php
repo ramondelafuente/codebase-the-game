@@ -2,14 +2,13 @@
 
 namespace Codebase;
 
-use Codebase\Iteration;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class IterationSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_is_initializable(Phase $developmentPhase, Phase $productionPhase)
     {
+        $this->beConstructedThrough('initialize', [$developmentPhase, $productionPhase]);
         $this->shouldHaveType(Iteration::class);
     }
 }
