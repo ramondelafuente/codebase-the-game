@@ -26,7 +26,7 @@ final class Development
     {
     }
 
-    public static function start(Codebase $codebase, int $availableTime, int $bugsToSolve): self
+    public static function plan(Codebase $codebase, int $availableTime, int $bugsToSolve): self
     {
         $development = new Development();
         $development->codebase = $codebase;
