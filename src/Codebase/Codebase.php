@@ -52,4 +52,12 @@ final class Codebase
 
         $this->bugCount += $numberOfBugs;
     }
+
+    public function solveBugs(int $numberOfBugs): void
+    {
+        Assert::greaterThanEq($numberOfBugs, 0, 'The number of bugs solved should be 0 or more');
+        Assert::greaterThanEq($this->bugCount, $numberOfBugs, 'The unmber of bugs solved can not be greater than known bugs');
+
+        $this->bugCount -= $numberOfBugs;
+    }
 }

@@ -33,4 +33,14 @@ class CodebaseSpec extends ObjectBehavior
         $this->bugCount()->shouldReturn(3);
     }
 
+    function it_reduces_the_bugcount()
+    {
+        $this->beConstructedThrough('initialize');
+        $this->findBugs(3);
+
+        $this->solveBugs(1);
+        $this->bugCount()->shouldReturn(2);
+    }
+
+
 }
