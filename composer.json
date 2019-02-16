@@ -11,6 +11,8 @@
         "psr-4": {
             "Codebase\\": "spec/Codebase"
         }
+    },
+    "require": {
+        "webmozart/assert": "^1.4"
     }
-
 }
