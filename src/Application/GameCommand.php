@@ -45,6 +45,6 @@ class GameCommand extends Command
             $iteration++;
         }
 
-
+        $io->error(sprintf('You have been declared technically bankrupt after %d iterations', $iteration));
     }
 }
