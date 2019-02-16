@@ -25,4 +25,8 @@ final class Codebase
         return $this->features;
     }
 
+    public function addFeature(Feature $feature): void
+    {
+        $this->features[] = $feature;
+    }
 }
