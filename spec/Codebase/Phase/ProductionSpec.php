@@ -3,6 +3,7 @@
 namespace Codebase\Phase;
 
 use Codebase\Codebase;
+use Codebase\Phase;
 use PhpSpec\ObjectBehavior;
 
 class ProductionSpec extends ObjectBehavior
@@ -12,5 +13,6 @@ class ProductionSpec extends ObjectBehavior
         $this->beConstructedThrough('plan', [Codebase::initialize()]);
 
         $this->shouldHaveType(Production::class);
+        $this->shouldImplement(Phase::class);
     }
 }

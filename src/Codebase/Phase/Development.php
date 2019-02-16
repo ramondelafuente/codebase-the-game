@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace Codebase\Phase;
 
 use Codebase\Codebase;
+use Codebase\Phase;
 
-final class Development
+final class Development implements Phase
 {
     /**
      * @var int
@@ -44,5 +45,10 @@ final class Development
     public function bugsToSolve(): int
     {
         return $this->bugsToSolve;
+    }
+
+    public function run(): Codebase
+    {
+        // TODO: Implement run() method.
     }
 }
