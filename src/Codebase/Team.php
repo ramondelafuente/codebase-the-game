@@ -48,6 +48,11 @@ final class Team
         return $this->lifecycle;
     }
 
+    public function capacity(): int
+    {
+        return $this->capacity;
+    }
+
     public function inspectCodebase(): array
     {
         return [
@@ -64,7 +69,7 @@ final class Team
                 $bugsToSolve,
                 0
             ),
-            Production::plan(new Percentage(10))
+            Production::plan(new Percentage(10 + $bugsToSolve))
         );
 
         $iteration->run($this->codebase);
