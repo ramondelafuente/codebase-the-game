@@ -2,7 +2,7 @@
 
 namespace Codebase\Phase;
 
-use Codebase\BugCalculator\OneBugInEveryFeature;
+use Codebase\BugCalculator\Percentage;
 use Codebase\Code;
 use Codebase\Phase;
 use PhpSpec\ObjectBehavior;
@@ -11,7 +11,7 @@ class ProductionSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedThrough('plan', [new OneBugInEveryFeature()]);
+        $this->beConstructedThrough('plan', [new Percentage(100)]);
     }
 
     function it_is_initializable()
