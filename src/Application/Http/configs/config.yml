@@ -1,0 +1,11 @@
+framework:
+  secret: "notImportant"
+  session:
+    handler_id: ~
+  router:
+    resource: "configs/routing.yml"
+    strict_requirements: ~
+
+twig:
+  paths:
+    "%kernel.project_dir%/src/Application/Http/templates": ~

@@ -1,0 +1,14 @@
+<p>
+    Iteration: {{ iteration|default(1) }}
+</p>
+<p>
+    Number of features: {{ codebase.features }}<br />
+    Number of bugs: {{ codebase.bugs }}
+</p>
+
+<form method="POST">
+    <label for="numberOfBugsToSolve">How many bugs do you want to solve?</label>
+    <input type="text" name="numberOfBugsToSolve" value="{{ codebase.bugs }}"/>
+
+    <input type="submit" name="submit" value="submit"/>
+</form>

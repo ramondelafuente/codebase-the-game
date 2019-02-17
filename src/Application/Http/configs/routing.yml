@@ -1,0 +1,14 @@
+index:
+  path:     /
+  controller: Application\Http\Controller::index
+  methods: ['GET']
+
+game_start:
+  path:     /game
+  controller: Application\Http\Controller::start
+  methods: ['GET']
+
+game_iterate:
+  path:     /game
+  controller: Application\Http\Controller::iterate
+  methods: ['POST']
