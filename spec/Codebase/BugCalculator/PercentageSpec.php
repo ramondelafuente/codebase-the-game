@@ -39,4 +39,11 @@ class PercentageSpec extends ObjectBehavior
         $this->calculate($codebase)->shouldReturn(3);
     }
 
+    function it_does_not_find_bugs_with_0_percent(Code $codebase)
+    {
+        $this->beConstructedWith(0);
+
+        $codebase->features()->willReturn([Feature::write(0), Feature::write(0), Feature::write(0)]);
+        $this->calculate($codebase)->shouldReturn(0);
+    }
 }
