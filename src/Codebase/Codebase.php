@@ -46,6 +46,11 @@ final class Codebase implements Code
         return $this->bugCount;
     }
 
+    public function featureCount(): int
+    {
+        return count($this->features);
+    }
+
     public function findBugs(int $numberOfBugs): void
     {
         Assert::greaterThanEq($numberOfBugs, 0, 'The number of bugs found should be 0 or more');
