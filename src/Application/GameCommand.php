@@ -23,7 +23,7 @@ class GameCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->title('Welcome to Codebase the game');
 
-        $team = Team::form(100);
+        $team = Team::form(18);
         $iteration = 1;
 
         while ($team->codebase()->bugCount() < 100) {
@@ -32,13 +32,17 @@ class GameCommand extends Command
             $io->text('Number of features: ' . $team->inspectCodebase()['features']);
             $io->text('Number of bugs: ' . $team->inspectCodebase()['bugs']);
 
-            $numberOfBugsToSolve = $io->ask('How many bugs do you want to fix this time?', 0, function ($number) {
-                if (!is_numeric($number)) {
-                    throw new \RuntimeException('You must type a number.');
-                }
+            $numberOfBugsToSolve = $io->ask(
+                'How many bugs do you want to fix this time?',
+                $team->inspectCodebase()['bugs'],
+                function ($number) {
+                    if (!is_numeric($number)) {
+                        throw new \RuntimeException('You must type a number.');
+                    }
 
-                return (int)$number;
-            });
+                    return (int)$number;
+                }
+            );
 
             $team->planIteration($numberOfBugsToSolve);
 
