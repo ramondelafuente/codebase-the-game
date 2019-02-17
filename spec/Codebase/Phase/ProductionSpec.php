@@ -22,7 +22,7 @@ class ProductionSpec extends ObjectBehavior
 
     function it_runs(Code $codebase)
     {
-        $codebase->features()->willReturn(['Feature1', 'Feature2']);
+        $codebase->featureCount()->willReturn(2);
         $codebase->findBugs(2)->shouldBeCalled();
 
         $this->run($codebase);

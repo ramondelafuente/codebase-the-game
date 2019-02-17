@@ -13,6 +13,8 @@ interface Code
 
     public function bugCount(): int;
 
+    public function featureCount(): int;
+
     public function findBugs(int $numberOfBugs): void;
 
     public function solveBugs(int $numberOfBugs): void;

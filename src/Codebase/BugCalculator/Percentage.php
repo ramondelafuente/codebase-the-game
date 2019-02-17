@@ -20,7 +20,7 @@ final class Percentage implements BugCalculator
 
     public function calculate(Code $codebase): int
     {
-        $numberOfFeatures = count($codebase->features());
+        $numberOfFeatures = $codebase->featureCount();
 
         $bugCount = 0;
         for ($i = 1; $i <= $numberOfFeatures; $i++) {
