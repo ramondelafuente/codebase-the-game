@@ -32,7 +32,7 @@ final class Team
     {
         $team = new Team();
         $team->codebase = Codebase::initialize();
-        $team->lifecycle = Lifecycle::begin($team->codebase);
+        $team->lifecycle = Lifecycle::begin();
         $team->capacity = $capacity;
 
         return $team;

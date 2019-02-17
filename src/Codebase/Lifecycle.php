@@ -6,11 +6,6 @@ namespace Codebase;
 final class Lifecycle
 {
     /**
-     * @var Code
-     */
-    private $codebase;
-
-    /**
      * @var Iteration[]
      */
     private $iterations;
@@ -19,23 +14,22 @@ final class Lifecycle
     {
     }
 
-    public static function begin(Code $codebase): self
+    public static function begin(): self
     {
         $lifecycle = new Lifecycle();
-        $lifecycle->codebase = $codebase;
         $lifecycle->iterations = [];
 
         return $lifecycle;
     }
 
-    public function codebase(): Code
-    {
-        return $this->codebase;
-    }
-
     public function iterations(): array
     {
         return $this->iterations;
+    }
+
+    public function iterationCount(): int
+    {
+        return count($this->iterations);
     }
 
     public function addIteration(Iteration $iteration): void
