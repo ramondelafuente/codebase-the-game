@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class Game extends Command
 {
-    protected static $defaultName = 'codebase:game';
+    protected static $defaultName = 'game:start';
 
     protected function configure()
     {
