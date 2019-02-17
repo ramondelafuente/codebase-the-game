@@ -3,10 +3,10 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use Application\GameCommand;
+use Application\Console\Game;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
-$application->add(new GameCommand());
+$application->add(new Game());
 
 $application->run();
