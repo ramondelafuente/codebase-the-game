@@ -23,7 +23,7 @@ class GameCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->title('Welcome to Codebase the game');
 
-        $team = Team::form();
+        $team = Team::form(100);
         $iteration = 1;
 
         while ($team->codebase()->bugCount() < 100) {

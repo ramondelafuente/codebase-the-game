@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Codebase;
 
 use Codebase\BugCalculator\FiftyFifty;
-use Codebase\BugCalculator\OneBugInEveryFeature;
 use Codebase\Phase\Development;
 use Codebase\Phase\Production;
 
@@ -23,17 +22,18 @@ final class Team
     /**
      * @var int
      */
-    private $timeBudget = 100;
+    private $capacity;
 
     private function __construct()
     {
     }
 
-    public static function form(): Team
+    public static function form(int $capacity): Team
     {
         $team = new Team();
         $team->codebase = Codebase::initialize();
         $team->lifecycle = Lifecycle::begin($team->codebase);
+        $team->capacity = $capacity;
 
         return $team;
     }
@@ -60,7 +60,7 @@ final class Team
     {
         $iteration = Iteration::prepare(
             Development::plan(
-                $this->timeBudget-$this->codebase->bugCount(),
+                $this->capacity - $this->codebase->bugCount(),
                 $bugsToSolve,
                 0
             ),

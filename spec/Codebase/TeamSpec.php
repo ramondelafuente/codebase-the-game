@@ -6,10 +6,13 @@ use PhpSpec\ObjectBehavior;
 
 class TeamSpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedThrough('form', [100]);
+    }
+
     function it_is_initializable()
     {
-        $this->beConstructedThrough('form');
-
         $this->shouldHaveType(Team::class);
         $this->codebase()->shouldReturnAnInstanceOf(Code::class);
         $this->lifecycle()->shouldReturnAnInstanceOf(Lifecycle::class);
@@ -23,8 +26,6 @@ class TeamSpec extends ObjectBehavior
 
     function it_plans_an_iteration()
     {
-        $this->beConstructedThrough('form');
-
         $this->planIteration(0);
         $this->codebase()->features()->shouldNotBeEmpty();
         $this->lifecycle()->iterations()->shouldNotBeEmpty();
