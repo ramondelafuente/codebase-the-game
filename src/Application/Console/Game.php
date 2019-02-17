@@ -24,13 +24,12 @@ class Game extends Command
     {
         $io = new SymfonyStyle($input, $output);
         $io->title('Welcome to Codebase the game');
-        $capacity = (int) $input->getOption('capacity');
+        $capacity = (int)$input->getOption('capacity');
 
         $team = Team::form($capacity);
-        $iteration = 1;
 
-        while ($team->codebase()->bugCount() < $capacity) {
-            $io->section(sprintf('Iteration %d', $iteration));
+        while ($team->capacity() > $team->codebase()->bugCount()) {
+            $io->section(sprintf('Iteration %d', $team->lifecycle()->iterationCount()));
 
             $io->text('Number of features: ' . $team->inspectCodebase()['features']);
             $io->text('Number of bugs: ' . $team->inspectCodebase()['bugs']);
@@ -48,11 +47,14 @@ class Game extends Command
             );
 
             $team->planIteration($numberOfBugsToSolve);
-
-            $iteration++;
         }
 
-        $io->error(sprintf('You have been declared technically bankrupt after %d iterations', $iteration));
+        $io->error(
+            sprintf(
+                'You have been declared technically bankrupt after %d iterations',
+                $team->lifecycle()->iterationCount()
+            )
+        );
         $io->text('Number of features: ' . $team->inspectCodebase()['features']);
         $io->text('Number of bugs: ' . $team->inspectCodebase()['bugs']);
     }

@@ -19,29 +19,34 @@ class Controller extends AbstractController
     {
         $team = Team::form(16);
         $session->set('team', $team);
-        $session->set('iteration', 1);
 
-        return $this->render('game.twig', ['codebase' => $team->inspectCodebase()]);
+        return $this->render(
+            'game.twig',
+            [
+                'codebase' => $team->inspectCodebase(),
+                'iterations' => $team->lifecycle()->iterationCount()
+            ]
+        );
     }
 
     public function iterate(SessionInterface $session, Request $request)
     {
         $team = $this->getActiveTeam($session);
-        $iteration = (int) $session->get('iteration') + 1;
 
         if ($team->capacity() <= $team->codebase()->bugCount()) {
-            return $this->render('game-finished.twig', [
-                'codebase' => $team->inspectCodebase(),
-                'iteration' => $iteration
-            ]);
+            return $this->render(
+                'game-finished.twig',
+                [
+                    'codebase' => $team->inspectCodebase(),
+                    'iteration' => $team->lifecycle()->iterationCount()
+                ]);
         }
 
         $team->planIteration((int)$request->request->get('numberOfBugsToSolve', 0));
-        $session->set('iteration', $iteration);
 
         return $this->render('game.twig', [
             'codebase' => $team->inspectCodebase(),
-            'iteration' => $iteration
+            'iteration' => $team->lifecycle()->iterationCount()
         ]);
     }
 
